@@ -44,19 +44,52 @@ br
           .row-fluid
             .span6
               | !Purpose : arduino control over the Interweb!
-        //   End About 
+        //End About 
+          //Slider 
+        section#slider
+          .page-header
+            h1 Slider
+          h2 Horizontal Slider
+          .row-fluid
+            .span6
+              #h-slider1
+            .span6
+              label(for='value_h-slider1')
+                | h1:
+                input#value_h-slider1(type='text', style='width: 50px; height: 10px;')
+          .row-fluid
+            .span6
+              #h-slider2
+            .span6
+              label(for='value_h-slider2')
+                | h2:
+                input#value_h-slider2(type='text', style='width: 50px; height: 10px;')
+          h2 Vertical Slider
+          .row-fluid
+            .span6
+              p.ui-state-default.ui-corner-all.ui-helper-clearfix(style='padding: 4px;')
+                span.ui-icon.ui-icon-volume-on(style='float: left; margin: -2px 5px 0 0;')
+                | Master volume
+              p
+                label(for='amount') Volume:
+                input#amount(type='text')
+            .span6
+              #v-slider(style='height: 200px;')
 
+               
         .span4
           pre
             ul#socket
 // .container
-  h2 BrowserQuest Controller
-  p If you are running your own 
-    a(href="http://browserquest.mozilla.org/") BrowserQuest
-    |  server on default port 8000, you can use the 
-    a(href="http://www.sparkfun.com/products/9760") SparkFun Joystick Shield Kit
-    |  with the 
-    a(href="/browserquest/client/") customized BrowserQuest client
-    |  to control your character. Please upload the provided <code>CallbackExample.pde</code> file from 
-    a(href="https://github.com/sudar/JoystickShield") Sudur Muthu
-    |  to your Arduino for sending commands from the joystick to the serial port watcher…
+    footer.footer
+      .container
+        p
+          | jQuery UI Bootstrap © Addy Osmani 2012 - 2013.
+        p
+          | Twitter Bootstrap © Twitter 2012 - 2013
+        ul.footer-links
+          li
+            a(href='http://addyosmani.com/blog/') Blog
+          li.muted ·
+          li
+            a(href='https://github.com/addyosmani/jquery-ui-bootstrap/issues?state=open') Issues
