@@ -1,0 +1,62 @@
+
+.navbar.navbar-inverse.navbar-fixed-top
+    .navbar-inner
+      .container
+        button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.brand(href='./index.html') Re BOoT ----
+        .nav-collapse.collapse
+          ul.nav
+            li.active
+              a(href='./index.html') Home
+            li
+              a(href='./extra.html') Extra
+            li
+              a(href='http://github.com/addyosmani/jquery-ui-bootstrap/issues') Feedback/Issues
+            li
+              a(href='http://twitter.com/addyosmani') Contact
+br
+br
+br
+.container
+    //  Docs nav ================================================== 
+    .row
+      .span3.bs-docs-sidebar
+        ul.nav.nav-list.bs-docs-sidenav
+          li
+            a(href='#about')
+              i.icon-book
+              | About
+          li
+            a(href='#slider')
+              i.icon-repeat
+              | Slider
+      .span9
+        .alert.alert-info
+          span.icon-info-sign
+          | This is under dev!!!!
+        //    About 
+        section#about
+          .page-header
+            h1 About
+          .row-fluid
+            .span6
+              | !Purpose : arduino control over the Interweb!
+        //   End About 
+
+.container
+  pre
+    ul#socket
+// .container
+  h2 BrowserQuest Controller
+  p If you are running your own 
+    a(href="http://browserquest.mozilla.org/") BrowserQuest
+    |  server on default port 8000, you can use the 
+    a(href="http://www.sparkfun.com/products/9760") SparkFun Joystick Shield Kit
+    |  with the 
+    a(href="/browserquest/client/") customized BrowserQuest client
+    |  to control your character. Please upload the provided <code>CallbackExample.pde</code> file from 
+    a(href="https://github.com/sudar/JoystickShield") Sudur Muthu
+    |  to your Arduino for sending commands from the joystick to the serial port watcher…
