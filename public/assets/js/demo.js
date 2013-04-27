@@ -1,4 +1,7 @@
 $(function () {
+
+var socket = io.connect('http://192.168.1.19:8080');
+
     //####### Buttons
     $('button,.button,#sampleButton').button();
 
@@ -163,6 +166,7 @@ $(function () {
     slide: function (event, ui) {
         $("#value_h-slider1").val(ui.value);
         console.log(ui.value)
+        socket.emit('browser slider1' ,ui.value);
         }
     });
     $("#value_h-slider1").val($("#h-slider1").slider("value"));
@@ -175,6 +179,7 @@ $(function () {
     slide: function (event, ui) {
         $("#value_h-slider2").val(ui.value);
         console.log(ui.value)
+        socket.emit('browser slider2' ,ui.value);
         }
     });
     $("#value_h-slider2").val($("#h-slider2").slider("value"));

@@ -1,3 +1,13 @@
+Based on node-arduino-socket...
+
+Demo.js
+-------
+IP@ for the socket.io connection and the slider transmitter
+
+quote...
+
+
+
 Simple Node.js application for piping serial communication from your arduino to a modern web browser with WebSockets.
 
 ![arduino-socket](http://semu.mp/screenshots/arduino-socket-20120410-173825.png)
