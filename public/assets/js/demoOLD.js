@@ -145,6 +145,10 @@ $(function () {
         });
     });
 
+    //####### Datepicker
+    $('#datepicker').datepicker({
+        inline: true
+    });
 
     //####### Slider
 
@@ -191,7 +195,71 @@ $(function () {
             console.log(ui.value)
         }
     });
+    $("#amount").val($("#v-slider").slider("value"));
 
+    // Autocomplete
+    var availableTags = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
 
+    $("#tags").autocomplete({
+        source: availableTags
+    });
 
+    //####### Menu
+    $("#menu").menu();
+
+    //####### Spinner
+
+    var spinner = $( "#spinner" ).spinner();
+
+    $( "#disable" ).click(function() {
+        if ( spinner.spinner( "option", "disabled" ) ) {
+            spinner.spinner( "enable" );
+        } else {
+            spinner.spinner( "disable" );
+        }
+    });
+    $( "#destroy" ).click(function() {
+        if ( spinner.data( "ui-spinner" ) ) {
+            spinner.spinner( "destroy" );
+        } else {
+            spinner.spinner();
+        }
+    });
+    $( "#getvalue" ).click(function() {
+        alert( spinner.spinner( "value" ) );
+    });
+    $( "#setvalue" ).click(function() {
+        spinner.spinner( "value", 5 );
+    });
+
+    //####### Tooltip
+
+    $( "#tooltip" ).tooltip();
+
+    // File input (using http://filamentgroup.com/lab/jquery_custom_file_input_book_designing_with_progressive_enhancement/)
+    /*$('#file').customFileInput({
+        button_position : 'right'
+    });
+
+    //####### Wijmo
+
+    $("#menu1").wijmenu({ trigger: ".wijmo-wijmenu-item", triggerEvent: "click" });
+*/
+    // Select a Date Range with datepicker
+    $( "#rangeBa" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3,
+        onClose: function( selectedDate ) {
+            $( "#rangeBb" ).datepicker( "option", "minDate", selectedDate );
+        }
+    });
+    $( "#rangeBb" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3,
+        onClose: function( selectedDate ) {
+            $( "#rangeBa" ).datepicker( "option", "maxDate", selectedDate );
+        }
+    });
 });

@@ -12,6 +12,6 @@ require(["jquery"], function($) {
       if ($("#socket li").length > 20) {
         $("#socket li:nth-child(1)").remove(); }
       
-      $('#socket').append('<li>' + ISODateString(new Date()) + " " + data + '</li>');
+      $('#socket').append('<li>' + ISODateString(new Date()) + "->" + data + '</li>');
     });
 });
