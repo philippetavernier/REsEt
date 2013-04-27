@@ -1,0 +1,93 @@
+
+.navbar.navbar-inverse.navbar-fixed-top
+    .navbar-inner
+      .container
+        button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.brand(href='./index.html') Re BOoT ----
+        .nav-collapse.collapse
+          ul.nav
+            li.active
+              a(href='./index.html') Home
+            li
+              a(href='./extra.html') Extra
+            li
+              a(href='http://github.com/addyosmani/jquery-ui-bootstrap/issues') Feedback/Issues
+            li
+              a(href='http://twitter.com/addyosmani') Contact
+br
+br
+br
+.container  
+  .row
+    .span3.bs-docs-sidebar
+      ul.nav.nav-list.bs-docs-sidenav
+        li
+          a(href='#about')
+            i.icon-book
+            | About
+        li
+          a(href='#slider')
+            i.icon-repeat
+            | Slider
+
+    .span9
+      section#about
+        .page-header
+          h1 About
+          .row-fluid
+            .span6
+              | !Purpose : arduino control over the Interweb! 
+              .alert.alert-info
+                span.icon-info-sign
+                | This is under dev!!!! 
+
+      section#slider
+        .page-header
+          h1 Slider
+        h2 Horizontal Slider
+        .row-fluid
+          .span6
+            #h-slider1
+          .span6
+            label(for='value_h-slider1')
+              | h1:
+              input#value_h-slider1(type='text', style='width: 50px; height: 10px;')
+        .row-fluid
+          .span6
+            #h-slider2
+          .span6
+            label(for='value_h-slider2')
+              | h2:
+              input#value_h-slider2(type='text', style='width: 50px; height: 10px;')
+        h2 Vertical Slider
+        .row-fluid
+          .span6
+            p.ui-state-default.ui-corner-all.ui-helper-clearfix(style='padding: 4px;')
+              span.ui-icon.ui-icon-volume-on(style='float: left; margin: -2px 5px 0 0;')
+              | Master vertical
+            p
+              label(for='amount') Vertical:
+              input#amount(type='text')
+          .span6
+            #v-slider(style='height: 200px;')
+
+             
+      .span4
+        pre
+          ul#socket
+  //.container
+    footer.footer
+      .container
+        p
+          | ReSet tHe Re BOoT 2013.
+        p
+          |  © Twitter 2012 - 2013
+        ul.footer-links
+          li
+            a(href='http://addyosmani.com/blog/') Blog
+          li.muted ·
+          li
+            a(href='https://github.com/addyosmani/jquery-ui-bootstrap/issues?state=open') Issues
