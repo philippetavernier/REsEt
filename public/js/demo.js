@@ -1,26 +1,94 @@
 $(function () {
 
-    // Accordion
-    $("#accordion").accordion({
-        header: "h3"
+    var socket = io.connect('http://192.168.1.21:8099');
+    //####### Slider
+
+    // Horizontal slider
+    $('#h-slider').slider({
+        range: true,
+        min: 0,
+        max: 100,
+        values: 17
     });
+/////////////////////
+    $('#h-slider1').slider({
+    range: true,
+    min: 0,
+    max: 100,
+    values: 17,
+    slide: function (event, ui) {
+        $("#value_h-slider1").val(ui.value);
+        console.log(ui.value);
+        socket.emit('browser slider1' ,ui.value);
+        }
+    });
+    $("#value_h-slider1").val($("#h-slider1").slider("value"));
+/////////////////////
+    $('#h-slider2').slider({
+    range: true,
+    min: 0,
+    max: 100,
+    values: 17,
+    slide: function (event, ui) {
+        $("#value_h-slider2").val(ui.value);
+        console.log(ui.value);
+        }
+    });
+    $("#value_h-slider2").val($("#h-slider2").slider("value"));
 
-    // Tabs
-    $('#tabs2, #tabs, #tabs3').tabs();
+    // Vertical slider
+    $("#v-slider").slider({
+        orientation: "vertical",
+        range: "min",
+        min: 0,
+        max: 100,
+        value: 60,
+        slide: function (event, ui) {
+            $("#amount").val(ui.value);
+            console.log(ui.value)
+        }
+    });
+    $("#amount").val($("#v-slider").slider("value"));
 
-    // Buttons
-    $('button').button();
 
-    // Anchors, Submit
-    $('.button,#sampleButton').button();
+    //####### Buttons
+    $('button,.button,#sampleButton').button();
 
     // Buttonset
     $('#radioset').buttonset();
     $("#format").buttonset();
 
+    //####### Toolbar
+    $("#play, #shuffle").button();
+    $("#repeat").buttonset();
 
-    // Dialog
-    $('#dialog').dialog({
+    //####### Accordion
+    $("#menu-collapse").accordion({
+        header: "h3"
+    });
+
+    // Dialog Link
+    $('#dialog_link').click(function () {
+        $('#dialog_simple').dialog('open');
+        return false;
+    });
+
+    // Modal Link
+    $('#modal_link').click(function () {
+        $('#dialog-message').dialog('open');
+        return false;
+    });
+    //hover states on the static widgets
+    $('#dialog_link, #modal_link, ul#icons li').hover(
+        function () {
+            $(this).addClass('ui-state-hover');
+        }, function () {
+            $(this).removeClass('ui-state-hover');
+        }
+    );
+
+    // Dialog Simple
+    $('#dialog_simple').dialog({
         autoOpen: false,
         width: 600,
         buttons: {
@@ -33,52 +101,7 @@ $(function () {
         }
     });
 
-    // Dialog Link
-    $('#dialog_link').click(function () {
-        $('#dialog').dialog('open');
-        return false;
-    });
-
-    // Modal Link
-    $('#modal_link').click(function () {
-        $('#dialog-message').dialog('open');
-        return false;
-    });
-
-    // Datepicker
-    $('#datepicker').datepicker({
-        inline: true
-    });
-
-    // Slider
-    $('#slider').slider({
-        range: true,
-        values: [17, 67]
-    });
-
-    // Progressbar
-    $("#progressbar").progressbar({
-        value: 20
-    });
-
-    //hover states on the static widgets
-    $('#dialog_link, #modal_link, ul#icons li').hover(
-
-    function () {
-        $(this).addClass('ui-state-hover');
-    }, function () {
-        $(this).removeClass('ui-state-hover');
-    });
-
-    // Autocomplete
-    var availableTags = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
-
-    $("#tags").autocomplete({
-        source: availableTags
-    });
-
-
-    // Dialogs
+    //####### Dialogs
     $("#dialog-message").dialog({
         autoOpen: false,
         modal: true,
@@ -89,83 +112,18 @@ $(function () {
         }
     });
 
-
     // Remove focus from buttons
     $('.ui-dialog :button').blur();
 
-
-
-    // Vertical slider
-    $("#slider-vertical").slider({
-        orientation: "vertical",
-        range: "min",
-        min: 0,
-        max: 100,
-        value: 60,
-        slide: function (event, ui) {
-            $("#amount").val(ui.value);
-            //console.log("slider vertical"+ui.value)
-        }
-    });
-    $("#amount").val($("#slider-vertical").slider("value"));
-
-    //Menu
-    $("#menu").menu();
-
-    //Spinner
-    var spinner = $( "#spinner" ).spinner();
-
-    $( "#disable" ).click(function() {
-        if ( spinner.spinner( "option", "disabled" ) ) {
-            spinner.spinner( "enable" );
-        } else {
-            spinner.spinner( "disable" );
-        }
-    });
-    $( "#destroy" ).click(function() {
-        if ( spinner.data( "ui-spinner" ) ) {
-            spinner.spinner( "destroy" );
-        } else {
-            spinner.spinner();
-        }
-    });
-    $( "#getvalue" ).click(function() {
-        alert( spinner.spinner( "value" ) );
-    });
-    $( "#setvalue" ).click(function() {
-        spinner.spinner( "value", 5 );
-    });
-
-    $( "button" ).button();
-
-    //Tooltip
-
-    $( "#tooltip" ).tooltip();
-
-    // Split button
-    $("#rerun").button().click(function () {
-        alert("Running the last action");
-    }).next().button({
-        text: false,
-        icons: {
-            primary: "ui-icon-triangle-1-s"
-        }
-    }).click(function () {
-        alert("Could display a menu to select an action");
-    }).parent().buttonset();
-
-
-    // Filament datepicker
-    $('#rangeA').daterangepicker();
-    $('#rangeBa, #rangeBb').daterangepicker();
-
+    //####### Tabs
+    $('#tabs2, #tabs, #tabs3').tabs();
 
     // Dynamic tabs
     var tabTitle = $( "#tab_title" ),
-            tabContent = $( "#tab_content" ),
-            tabTemplate = "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close'>Remove Tab</span></li>",
-            tabCounter = 2;
- 
+        tabContent = $( "#tab_content" ),
+        tabTemplate = "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close'>Remove Tab</span></li>",
+        tabCounter = 2;
+
     var tabs = $( "#tabs2" ).tabs();
 
     // modal dialog init: custom buttons and a "close" callback reseting the form inside
@@ -215,7 +173,7 @@ $(function () {
 
     // close icon: removing the tab on click
     $( "#tabs2" ).on( "click",'span.ui-icon-close', function() {
-        
+
         var panelId = $( this ).closest( "li" ).remove().attr( "aria-controls" );
         $( "#" + panelId ).remove();
         tabs.tabs( "refresh" );
@@ -224,7 +182,7 @@ $(function () {
     //Combination examples (tabs) and open dialog
     $('#sampleButton').on('click', function(event){
         event.preventDefault();
-        $('#dialog').dialog({
+        $('#dialog_simple').dialog({
             autoOpen: true,
             modal: true,
             width: 600,
@@ -239,22 +197,76 @@ $(function () {
         });
     });
 
+    //####### Datepicker
+    $('#datepicker').datepicker({
+        inline: true
+    });
 
 
-    //Wijmo
+
+    // Autocomplete
+    var availableTags = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
+
+    $("#tags").autocomplete({
+        source: availableTags
+    });
+
+    //####### Menu
+    $("#menu").menu();
+
+    //####### Spinner
+
+    var spinner = $( "#spinner" ).spinner();
+
+    $( "#disable" ).click(function() {
+        if ( spinner.spinner( "option", "disabled" ) ) {
+            spinner.spinner( "enable" );
+        } else {
+            spinner.spinner( "disable" );
+        }
+    });
+    $( "#destroy" ).click(function() {
+        if ( spinner.data( "ui-spinner" ) ) {
+            spinner.spinner( "destroy" );
+        } else {
+            spinner.spinner();
+        }
+    });
+    $( "#getvalue" ).click(function() {
+        alert( spinner.spinner( "value" ) );
+    });
+    $( "#setvalue" ).click(function() {
+        spinner.spinner( "value", 5 );
+    });
+
+    //####### Tooltip
+
+    $( "#tooltip" ).tooltip();
+
+    // File input (using http://filamentgroup.com/lab/jquery_custom_file_input_book_designing_with_progressive_enhancement/)
+    /*$('#file').customFileInput({
+        button_position : 'right'
+    });
+
+    //####### Wijmo
+
     $("#menu1").wijmenu({ trigger: ".wijmo-wijmenu-item", triggerEvent: "click" });
-    //$(".wijmo-wijmenu-text").parent().bind("click", function () {
-    //    $("#menu1").wijmenu("hideAllMenus");
-    //});
-    //$(".wijmo-wijmenu-link").hover(function () {
-    //    $(this).addClass("ui-state-hover");
-    //}, function () {
-    //    $(this).removeClass("ui-state-hover");
-    //});
-
-    //Toolbar
-    $("#play, #shuffle").button();
-    $("#repeat").buttonset();
-
-
+*/
+    // Select a Date Range with datepicker
+    $( "#rangeBa" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3,
+        onClose: function( selectedDate ) {
+            $( "#rangeBb" ).datepicker( "option", "minDate", selectedDate );
+        }
+    });
+    $( "#rangeBb" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3,
+        onClose: function( selectedDate ) {
+            $( "#rangeBa" ).datepicker( "option", "maxDate", selectedDate );
+        }
+    });
 });

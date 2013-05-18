@@ -11,7 +11,21 @@ require(["jquery"], function($) {
     socket.on('msg', function (data) {
       if ($("#socket li").length > 20) {
         $("#socket li:nth-child(1)").remove(); }
-      
+      //console.log("tetetetet")
       $('#socket').append('<li>' + ISODateString(new Date()) + "->" + data + '</li>');
     });
+    //////////////////
+      //io.sockets.on('connection', function (socket) {
+      //socket.on('browser slider1', function (msg) {
+          //message dans le terminal
+          //console.log("DATA!!on!!serial");    
+          //console.log("x"+msg);
+          //io.sockets.emit("slider X")
+          //send_serial(msg);
+          //clearInterval(interval);
+          //serial.write("x"+msg);    //ok if we don't use the slider to quickly
+      //});
+  //});
+  ////////////////////////
+ /////////////////////
 });
