@@ -1,0 +1,104 @@
+
+.container
+h1 jQuery UI Bootstrap
+p.lead A Bootstrap-themed kickstart for jQuery UI widgets (v0.5).
+.container
+  .row-fluid
+    .span1
+    .span9
+      section#tabs-simple
+        .page-header
+          h1 Tabs
+        h2 Simple tabs
+        //              Demo
+        #tabs
+          ul
+            li
+              a(href='#tabs-a') First
+            li
+              a(href='#tabs-b') Second
+            li
+              a(href='#tabs-c') Third
+            li
+              a(href='#tabs-d') forth
+          #tabs-a
+            p
+              form
+                #radioset1.radioset
+                  input#radio10(type='radio', name='radio0')
+                  label(for='radio10') Choice 1
+                  input#radio20(type='radio', name='radio0', checked='checked')
+                  label(for='radio20') Choice 2
+                  input#radio30(type='radio', name='radio0')
+                  label(for='radio30') Choice 3
+            .clearfix
+          #tabs-b
+            h2 Button set
+              p
+                form
+                  #radioset
+                    input#radio1(type='radio', name='radio')
+                    label(for='radio1') Choice 1
+                    input#radio2(type='radio', name='radio', checked='checked')
+                    label(for='radio2') Choice 2
+                    input#radio3(type='radio', name='radio')
+                    label(for='radio3') Choice 3
+                  #format
+                    input#check1(type='checkbox')
+                    label(for='check1') B
+                    input#check2(type='checkbox')
+                    label(for='check2') I
+                    input#check3(type='checkbox')
+                    label(for='check3') U
+              .clearfix
+          #tabs-c
+            h2 Button default
+              p
+                button Default
+                button.ui-button-primary Primary
+                button.ui-button-success Success
+                button.ui-button-error Danger
+                a.button Anchor
+                input.button(type='submit', value='Submit')
+              .clearfix
+          #tabs-d
+            .row-fluid
+              .span6
+                #h-slider1
+              .span1
+                label(for='value_h-slider1')
+                  | h1:
+                  input#value_h-slider1(type='text', style='width: 50px; height: 10px;')
+            .row-fluid
+              .span6
+                #h-slider2
+              .span1
+                label(for='value_h-slider2')
+                  | h2:
+                  input#value_h-slider2(type='text', style='width: 50px; height: 10px;')
+
+           
+              h2 Vertical Slider
+              .row-fluid
+                .span6
+                  p.ui-state-default.ui-corner-all.ui-helper-clearfix(style='padding: 4px;')
+                    span.ui-icon.ui-icon-volume-on(style='float: left; margin: -2px 5px 0 0;')
+                    | Master volume
+                  p
+                    label(for='amount') Volume:
+                    input#amount(type='text')
+                .span6
+                  #v-slider(style='height: 200px;')
+      
+footer.footer
+  .container
+  p
+  | jQuery UI Bootstrap © Addy Osmani 2012 - 2013.
+  p
+  | Twitter Bootstrap © Twitter 2012 - 2013
+  ul.footer-links
+  li
+    a(href='http://addyosmani.com/blog/') Blog
+  li.muted ·
+  li
+    a(href='https://github.com/addyosmani/jquery-ui-bootstrap/issues?state=open') Issues

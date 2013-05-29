@@ -9,7 +9,7 @@ function ISODateString(d){
 require(["jquery"], function($) {
   var socket = io.connect();
     socket.on('msg', function (data) {
-      if ($("#socket li").length > 20) {
+      if ($("#socket li").length > 10) {//max print line
         $("#socket li:nth-child(1)").remove(); }
       //console.log("tetetetet")
       $('#socket').append('<li>' + ISODateString(new Date()) + "->" + data + '</li>');

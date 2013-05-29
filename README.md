@@ -1,4 +1,6 @@
 Based on node-arduino-socket...
+bootswatch.com/sosmo/ for the css layout. -> bootstrap.min.css
+and metro jquery http://jquit.com/builde ->jquery-ui..custom.css
 
 Demo.js
 -------

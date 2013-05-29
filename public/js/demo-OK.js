@@ -1,119 +1,41 @@
-//////////////////////////////
-//PRG IN DEBUG MOD§E
-///////////////////////////
-
 $(function () {
-///////////////////////////
-//SOcket connction
-//////////////////////////
-  var socket = io.connect('http://192.168.1.17:8099');
 
-////////////////////////////////
-//Notification
-////////////////////////////////
-/*$('.top-right').notify({
-message: {text: 'hahahah'}
-}).show();
-*/
-////////////////////////////////
-//timeStamp
-////////////////////////////////
-var date;
-var timeStamp;
-var timeStampBefore;
-var inBetween;
-
-//        timeStamp = new Date().getTime();
-function clock(){
-    timeStamp = new Date().valueOf();
-    console.log("time : " + timeStamp);
-    console.log("time before : " + timeStampBefore);
-    console.log("in between : " + (timeStamp-timeStampBefore));
-    inBetween=timeStamp-timeStampBefore;
-
-
-    timeStampBefore=timeStamp;
-    //return inBetween; 
-    if (inBetween<=25) return 1; //too short so don't send
-    else return 0;
-
-    }
-/////////////////////////////////////////////////
-     //####### Slider
+    var socket = io.connect('http://192.168.1.21:8099');
+    //####### Slider
 
     // Horizontal slider
-    /*$('#h-slider').slider({
+    $('#h-slider').slider({
         range: true,
         min: 0,
         max: 100,
         values: 17
-    });*/
-/////////////////////////////////////////////////////
-// SLIDER 1
-/////////////////////////////////////////////////////
+    });
+/////////////////////
     $('#h-slider1').slider({
     range: true,
     min: 0,
     max: 100,
     values: 17,
     slide: function (event, ui) {
-        var clockReturn;
         $("#value_h-slider1").val(ui.value);
         console.log(ui.value);
-        clockReturn=clock();
-        //console.log("clockReturn f = "+ clockReturn);
-        if (clockReturn==1) {
-            console.log("SLIDER TOO FASSSSSST");
-        }
-
-        else if (clockReturn==0){
-            console.log("Slider not to fast so socketemit");
-            socket.emit('browser slider1' ,ui.value);  
-        } 
-        //date=new Date();
-        //timeStamp = Number(new Date().getSeconds());
-        //timeStamp = new Date().getSeconds();
-        //timeStamp = new Date().getTime();
-    },
-    stop: function (event, ui) {
-        $("#value_h-slider1").val(ui.value);
-        console.log(ui.value);
-        console.log("Slider STOPED so socketemit");
         socket.emit('browser slider1' ,ui.value);
         }
     });
     $("#value_h-slider1").val($("#h-slider1").slider("value"));
-/////////////////////////////////////////////////////
-// SLIDER 2
-/////////////////////////////////////////////////////
-$('#h-slider2').slider({
+/////////////////////
+    $('#h-slider2').slider({
     range: true,
     min: 0,
     max: 100,
     values: 17,
     slide: function (event, ui) {
-        var clockReturn;
         $("#value_h-slider2").val(ui.value);
         console.log(ui.value);
-        clockReturn=clock();
-        if (clockReturn==1) {
-            console.log("SLIDER TOO FASSSSSST");
-        }
-
-        else if (clockReturn==0){
-            console.log("Slider not to fast so socketemit");
-            socket.emit('browser slider2' ,ui.value);  
-        }
-    },
-    stop: function (event, ui) {
-        $("#value_h-slider2").val(ui.value);
-        console.log(ui.value);
-        console.log("Slider STOPED so socketemit");
-        socket.emit('browser slider2' ,ui.value);
         }
     });
-    $("#value_h-slider1").val($("#h-slider2").slider("value"));
-/////////////////////////////////////
+    $("#value_h-slider2").val($("#h-slider2").slider("value"));
+
     // Vertical slider
     $("#v-slider").slider({
         orientation: "vertical",
@@ -134,7 +56,6 @@ $('#h-slider2').slider({
 
     // Buttonset
     $('#radioset').buttonset();
-    $('#radioset1').buttonset();
     $("#format").buttonset();
 
     //####### Toolbar

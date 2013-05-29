@@ -1,14 +1,14 @@
 define(['child_process', 'serialport'], function(child, serialport) {
   var serial = {
     'connect': function(socket) {
-      board = new serialport.SerialPort('/dev/ttyUSB1', {
+      board = new serialport.SerialPort('/dev/ttyUSB0', {
         baudrate: 9600,
         parser: serialport.parsers.readline("\n")
       });
       /*serial = new SerialPort(port, {
       baudrate: 9600
     });*/
-      var interval = 10;
+      
       var io = socket;
       board.on('data', function(data) {
         data = data.toString();
@@ -18,14 +18,14 @@ define(['child_process', 'serialport'], function(child, serialport) {
 
       io.sockets.on('connection', function (socket) {
         socket.on('browser slider1', function (msg) {
+          //message dans le terminal
           console.log("DATA!!on!!serial");    
           console.log("x"+msg);
-          board.write("x"+parseInt(msg));
-        });
-        socket.on('browser slider2', function (msg) {
-          console.log("DATA!!on!!serial");    
-          console.log("y"+msg);
-          board.write("y"+parseInt(msg));
+          //io.sockets.emit("slider X")
+          //send_serial(msg);
+          //clearInterval(interval);
+          //board.write("x"+parseInt(msg));
+          //serial.write("x"+msg);    //ok if we don't use the slider to quickly
         });
       });  
     }

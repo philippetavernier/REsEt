@@ -1,0 +1,122 @@
+
+.container
+h1 jQuery UI Bootstrap
+p.lead A Bootstrap-themed kickstart for jQuery UI widgets (v0.5).
+.container
+  .row-fluid
+    .span1
+    .span9
+      section#download-bootstrap
+        .page-header
+          h1 1. Download
+        .row-fluid
+          p.docs-lead
+            | Welcome! This is a live preview of the new jQuery UI Bootstrap theme - a project I started to bring the beauty of Twitter's
+            a(href='http://twitter.github.com/bootstrap/') Bootstrap
+            | to jQuery UI widgets.
+            | With this theme, not only do you get the ability to use Bootstrap-themed widgets, but you can now also use (most) of Twitter Bootstrap side-by-wide with it without components breaking visually.
+            | It's still a work-in-progress, but I hope you find it useful. Issues and pull requests are always welcome -
+            a(href='http://twitter.com/addyosmani') @addyosmani
+          p
+            form
+              #radioset1.radioset
+                input#radio10(type='radio', name='radio0')
+                label(for='radio10') Choice 1
+                input#radio20(type='radio', name='radio0', checked='checked')
+                label(for='radio20') Choice 2
+                input#radio30(type='radio', name='radio0')
+                label(for='radio30') Choice 3
+          .clearfix
+          p
+            a.download-btn.ui-button-primary(href='https://github.com/addyosmani/jquery-ui-bootstrap/zipball/v0.23') Download stable (v0.23)
+            a.download-btn(href='https://github.com/addyosmani/jquery-ui-bootstrap/zipball/master') Download Latest (dev)
+      .page-header
+        h1 2. Documentation
+      .alert.alert-info
+        span.icon-info-sign
+        | This theme's support for more third-party widgets may improve over-time, based on requests and the popularity of the widgets.
+      //             Button 
+      section#button
+        .page-header
+          h1 Button
+        //               Buttons 
+        h2 Button default
+        p
+          button Default
+          button.ui-button-primary Primary
+          button.ui-button-success Success
+          button.ui-button-error Danger
+          a.button Anchor
+          input.button(type='submit', value='Submit')
+        //               Button set
+        h2 Button set
+        p
+          form
+            #radioset
+              input#radio1(type='radio', name='radio')
+              label(for='radio1') Choice 1
+              input#radio2(type='radio', name='radio', checked='checked')
+              label(for='radio2') Choice 2
+              input#radio3(type='radio', name='radio')
+              label(for='radio3') Choice 3
+            #format
+              input#check1(type='checkbox')
+              label(for='check1') B
+              input#check2(type='checkbox')
+              label(for='check2') I
+              input#check3(type='checkbox')
+              label(for='check3') U
+        .clearfix
+
+      //             Tabs 
+      section#tabs-simple
+        .page-header
+          h1 Tabs
+        h2 Simple tabs
+        //              Demo
+        #tabs
+          ul
+            li
+              a(href='#tabs-a') First
+            li
+              a(href='#tabs-b') Second
+            li
+              a(href='#tabs-c') Third
+          #tabs-a
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          #tabs-b
+            | Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.
+          #tabs-c
+            | Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.
+
+      //             Slider 
+      section#slider
+        .page-header
+          h1 Slider
+        h2 Horizontal Slider
+        #h-slider
+     
+        h2 Vertical Slider
+        .row-fluid
+          .span6
+            p.ui-state-default.ui-corner-all.ui-helper-clearfix(style='padding: 4px;')
+              span.ui-icon.ui-icon-volume-on(style='float: left; margin: -2px 5px 0 0;')
+              | Master volume
+            p
+              label(for='amount') Volume:
+              input#amount(type='text')
+          .span6
+            #v-slider(style='height: 200px;')
+      
+      footer.footer
+      .container
+      p
+      | jQuery UI Bootstrap © Addy Osmani 2012 - 2013.
+      p
+      | Twitter Bootstrap © Twitter 2012 - 2013
+      ul.footer-links
+      li
+        a(href='http://addyosmani.com/blog/') Blog
+      li.muted ·
+      li
+        a(href='https://github.com/addyosmani/jquery-ui-bootstrap/issues?state=open') Issues

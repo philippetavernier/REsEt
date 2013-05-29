@@ -16,12 +16,6 @@
             a(href='http://github.com/addyosmani/jquery-ui-bootstrap/issues') Issues
           li
             a(href='http://twitter.com/addyosmani') Contact
-  .side-box
-      .slide-content
-        .tab-content
-          .pull-right
-            pre
-              ul#socket()
 br
 br
 br
@@ -29,7 +23,7 @@ br
 br
 .container  
   .row-fluid
-    .span2
+    .span3
       .bs-docs-sidebar
         ul.nav.nav-list.bs-docs-sidenav.affix
           li
@@ -44,13 +38,12 @@ br
             a(href='#slider')
               i.icon-repeat
               | Slider
-
-    .span8
+    .span9
       section#about
         .page-header
           h1 About
           .row-fluid
-            .span7
+            .span6
               | !Purpose : arduino control over the Interweb! 
               .alert.alert-info
                 span.icon-info-sign
@@ -89,16 +82,15 @@ br
         .page-header
           h1 Slider
           h2 Horizontal Slider
-          .container
-            .span4
+          .row-fluid
+            .span6
               #h-slider1
             .span1
               label(for='value_h-slider1')
                 | h1:
                 input#value_h-slider1(type='text', style='width: 50px; height: 10px;')
-
-          .container
-            .span4
+          .row-fluid
+            .span6
               #h-slider2
             .span1
               label(for='value_h-slider2')
@@ -116,9 +108,8 @@ br
                 label(for='amount') Vertical:
                 input#amount(type='text')
             .span2
-              #v-slider(style='height: 400px;')
+              #v-slider(style='height: 200px;')
 
-
-        
-         
-
+        .span6
+          pre
+            ul#socket
